@@ -1,0 +1,147 @@
+/* ── Reset & base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:         #0f0f12;
+  --surface:    #1a1a24;
+  --border:     #2d2d3f;
+  --text:       #e8e8ef;
+  --muted:      #9999bb;
+  --accent:     #6c63ff;
+  --accent-h:   #857dff;
+  --danger:     #ff4f5e;
+  --danger-h:   #ff6b78;
+  --titlebar-h: 42px;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow: hidden;           /* no double scrollbar while WebView fills window */
+  user-select: none;          /* prevent accidental text selection on drag */
+}
+
+/* ── Custom title bar ───────────────────────────────────────────────────── */
+.titlebar {
+  position: fixed;
+  inset: 0 0 auto 0;
+  height: var(--titlebar-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+  z-index: 1000;
+
+  /* Entire bar is draggable by default; controls region overrides below */
+  -webkit-app-region: drag;
+  app-region: drag;
+}
+
+.titlebar-icon { font-size: 1.1rem; pointer-events: none; }
+
+.titlebar-title {
+  flex: 1;
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+/* ── Title-bar window controls ──────────────────────────────────────────── */
+.titlebar-controls {
+  display: flex;
+  gap: 4px;
+  /* Controls must NOT be draggable */
+  -webkit-app-region: no-drag;
+  app-region: no-drag;
+}
+
+.ctrl-btn {
+  width: 36px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: .95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .15s, color .15s;
+}
+
+.ctrl-btn:hover         { background: rgba(255,255,255,.08); color: var(--text); }
+.ctrl-btn.close:hover   { background: var(--danger);         color: #fff; }
+.ctrl-btn.close:active  { background: var(--danger-h); }
+
+/* ── Main scrollable area ───────────────────────────────────────────────── */
+.content {
+  position: fixed;
+  inset: var(--titlebar-h) 0 0 0;
+  overflow-y: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: text;         /* re-enable text selection in content */
+}
+
+/* ── Card ───────────────────────────────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.8rem 3.2rem;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 12px 48px rgba(0,0,0,.55);
+}
+
+.card h1 {
+  font-size: 2rem;
+  margin-bottom: .6rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-h));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 1.8rem;
+  font-size: .95rem;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: .7rem 1.8rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.primary-btn:hover  { background: var(--accent-h); }
+.primary-btn:active { transform: scale(.97); }
+
+pre {
+  margin-top: 1.4rem;
+  background: #111118;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .9rem 1rem;
+  font-size: .82rem;
+  min-height: 2.8rem;
+  color: #7effc4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
