@@ -1,0 +1,6 @@
+﻿<Application x:Class="MusixApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <!-- No StartupUri — window is created from code-behind after Kestrel starts -->
+  <Application.Resources />
+</Application>
