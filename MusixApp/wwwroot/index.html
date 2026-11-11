@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Musix</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Custom title bar ─────────────────────────────────────────────── -->
+  <header class="titlebar" id="titlebar">
+    <div class="titlebar-icon">🎵</div>
+    <span class="titlebar-title">Musix</span>
+    <div class="titlebar-controls">
+      <button class="ctrl-btn" id="btn-minimize" title="Minimize">&#8211;</button>
+      <button class="ctrl-btn" id="btn-maximize" title="Maximize">&#9633;</button>
+      <button class="ctrl-btn close" id="btn-close" title="Close">&#10005;</button>
+    </div>
+  </header>
+
+  <!-- ── Page content ─────────────────────────────────────────────────── -->
+  <main class="content">
+    <div class="card">
+      <h1>Welcome to Musix</h1>
+      <p>
+        Powered by <strong>ASP.NET Core + Kestrel</strong> and rendered through
+        <strong>Microsoft Edge WebView2</strong> — no Electron required.
+      </p>
+      <button class="primary-btn" id="pingBtn">Ping backend API</button>
+      <pre id="result"></pre>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
