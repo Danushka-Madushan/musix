@@ -1,0 +1,50 @@
+# Visual Studio / .NET
+# Build results
+bin/
+obj/
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+# VS Code
+.vscode/
+# Visual Studio cache
+.vs/
+# Rider
+.idea/
+# Packages
+*.nupkg
+# NuGet
+*.nuget.props
+*.nuget.targets
+# MSBuild binary logs
+*.binlog
+# Secrets
+*.secret
+# Logs
+*.log
+# Temporary files
+*.tmp
+# Publish output
+publish/
+# Test results
+TestResults/
+# Coverage
+coverage*
+# Resharper
+_ReSharper*/
+# VS cache files
+*~
+# OS generated files
+.DS_Store
+Thumbs.db
+# JetBrains
+*.iml
+# Antigravity workspace artifacts
+.gemini/
+# Others
+*.dll
+*.exe
+*.pdb
+.agents/
